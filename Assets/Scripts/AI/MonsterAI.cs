@@ -5,16 +5,13 @@ using Pathfinding;
 
 public class MonsterAI : AIPath
 {
-    public float attackRange = 1f;
+    public float attackRange = 0.1f;
     public float attackRate = 1f;
     public float attackCooldown = 0f;
-
-    public new Transform target;
 
     public new void Start()
     {
         base.Start();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public new void Update()
@@ -36,5 +33,6 @@ public class MonsterAI : AIPath
     void Attack()
     {
         Debug.Log("Attack");
+        GameObject.Find("Timer").GetComponent<Timer>().finish();
     }
 }
