@@ -6,13 +6,12 @@ public class ItemCollect : MonoBehaviour
 {
 	public int amountOfItems;
 	private ParticleSystem _particleSystem;
-	public AudioSource itemsound;
-
+	private AudioSource itemsound;
     // Start is called before the first frame update
     void Start()
     {
         _particleSystem = GetComponent<ParticleSystem>();
-
+		itemsound = GetComponent<AudioSource>();
     }
 
 	public void OnTriggerEnter(Collider Col){
