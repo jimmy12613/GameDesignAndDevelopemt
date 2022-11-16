@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
 
 public class Timer : MonoBehaviour
 {
-    bool isFinish = Singleton.Instance.isFinish;
+    bool isFinish;
     public Text timerText;
     public TimeSpan time;
     float startTime;
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         playfabManager = GetComponent<PlayfabManager>();
+        isFinish = Singleton.Instance.getIsFinish();
     }
 
     // Update is called once per frame
@@ -33,12 +35,23 @@ public class Timer : MonoBehaviour
     public void initTimer()
     {
         startTime = Time.time;
+        Singleton.Instance.setIsFinish(false);
+        playfabManager.GetPlayerLevelStatus();
     }
 
     public void finish()
     {
         isFinish = true;
-        playfabManager.uploadLevel1Score(time.TotalSeconds);
         GameObject.Find("MonsterAI").GetComponent<MonsterAI>().enabled = false;
+
+        playfabManager.uploadLevel1Score(time.TotalSeconds);
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            Singleton.Instance.setLevel1Status(true);
+        } else if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            Singleton.Instance.setLevel2Status(true);
+        }
+        playfabManager.SavePlayerLevelStatus();
     }
 }
