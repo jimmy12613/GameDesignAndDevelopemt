@@ -19,7 +19,7 @@ public class MonsterAI : AIPath
         base.Update();
         if (target != null)
         {
-            if (Vector2.Distance(transform.position, target.position) <= attackRange)
+            if (Vector3.Distance(transform.position, target.position) <= attackRange)
             {
                 if (Time.time >= attackCooldown)
                 {

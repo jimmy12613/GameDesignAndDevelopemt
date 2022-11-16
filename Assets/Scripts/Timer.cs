@@ -39,5 +39,6 @@ public class Timer : MonoBehaviour
     {
         isFinish = true;
         playfabManager.uploadLevel1Score(time.TotalSeconds);
+        GameObject.Find("MonsterAI").GetComponent<MonsterAI>().enabled = false;
     }
 }
