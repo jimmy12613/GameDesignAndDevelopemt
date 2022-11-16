@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
 	private CharacterController _controller;
 	private Camera _cam;
 	public float Speed = 2.0f;
-	private float rotate = 1.5f;
+	private float rotate = 2f;
 
     // Start is called before the first frame update
     void Start()
