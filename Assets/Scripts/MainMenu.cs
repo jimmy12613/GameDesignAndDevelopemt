@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject LeaderBoardScene;
+    public GameObject StartMenu;
     PlayfabManager playfabManager;
 
     void Start()
@@ -34,20 +35,24 @@ public class MainMenu : MonoBehaviour
     public void GoToStartMenu()
     {
         // Go to Scene "StartMenu"
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void BackToMenu()
     {
         // Go to Scene "Menu"
+        SceneManager.LoadScene("Menu");
     }
 
     public void GoToLevel1()
     {
         // Go to Scene "Level1"
+        SceneManager.LoadScene("Level1");
     }
 
     public void GoToLevel2()
     {
         // Go to Scene "Level2"
+        SceneManager.LoadScene("Level2");
     }
 }
