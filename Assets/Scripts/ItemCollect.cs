@@ -38,6 +38,6 @@ public class ItemCollect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _itemText.text = amountOfItems + "/90";
     }
 }
