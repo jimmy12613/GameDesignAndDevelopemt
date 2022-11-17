@@ -32,6 +32,11 @@ public class MainMenu : MonoBehaviour
         playfabManager.GetLevel2LeaderBoard();
     }
 
+    public void CloseLeaderBoard()
+    {
+        LeaderBoardScene.SetActive(false);
+    }
+
     public void GoToStartMenu()
     {
         // Go to Scene "StartMenu"

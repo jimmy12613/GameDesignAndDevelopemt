@@ -76,6 +76,10 @@ public class PlayfabManager : MonoBehaviour
     void OnGetLevel1LeaderBoardSuccess(GetLeaderboardResult result)
     {
         Debug.Log("Successfully retrieved level 1 leaderboard.");
+        foreach (Transform child in level1RowParent)
+        {
+            Destroy(child.gameObject);
+        }
         foreach (var item in result.Leaderboard)
         {
             GameObject row = Instantiate(Row, level1RowParent);
@@ -93,6 +97,10 @@ public class PlayfabManager : MonoBehaviour
     void OnGetLevel2LeaderBoardSuccess(GetLeaderboardResult result)
     {
         Debug.Log("Successfully retrieved level 2 leaderboard.");
+        foreach (Transform child in level2RowParent)
+        {
+            Destroy(child.gameObject);
+        }
         foreach (var item in result.Leaderboard)
         {
             GameObject row = Instantiate(Row, level2RowParent);
