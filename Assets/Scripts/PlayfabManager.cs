@@ -13,7 +13,7 @@ public class PlayfabManager : MonoBehaviour
     public Transform level2RowParent;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Login();
     }
@@ -22,9 +22,50 @@ public class PlayfabManager : MonoBehaviour
     {
         var request = new LoginWithCustomIDRequest {
             CustomId = SystemInfo.deviceUniqueIdentifier,
-            CreateAccount = true
+            CreateAccount = true,
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams {
+                GetPlayerProfile = true
+            }
         };
-        PlayFabClientAPI.LoginWithCustomID(request, OnSuccess, OnError);
+        PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
+    }
+
+    void OnLoginSuccess(LoginResult result)
+    {
+        Debug.Log("Login successful!");
+        Debug.Log(result.InfoResultPayload.PlayerProfile.DisplayName);
+        if (GameObject.Find("PlayerName") != null)
+        {
+            Text playerName = GameObject.Find("PlayerName").GetComponent<Text>();
+
+            if (!string.IsNullOrEmpty(result.InfoResultPayload.PlayerProfile.DisplayName))
+            {
+                Singleton.Instance.setPlayerName(result.InfoResultPayload.PlayerProfile.DisplayName);
+                if (!string.IsNullOrEmpty(Singleton.Instance.getPlayerName()))
+                {
+                    playerName.text = "Hi, " + Singleton.Instance.getPlayerName();
+                } else
+                {
+                    playerName.text = null;
+                }
+            } else
+            {
+                Singleton.Instance.setPlayerName(null);
+                playerName.text = null;
+            }
+        }
+    }
+
+    public void UpdatePlayerName(string name)
+    {
+        var request = new UpdateUserTitleDisplayNameRequest {
+            DisplayName = name
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnUpdatePlayerNameSuccess, OnError);
+    }
+    void OnUpdatePlayerNameSuccess(UpdateUserTitleDisplayNameResult result)
+    {
+        Debug.Log("Update player name successful!");
     }
 
     public void uploadLevel1Score(double score)
@@ -108,7 +149,7 @@ public class PlayfabManager : MonoBehaviour
             string statValue = TimeSpan.FromMilliseconds(item.StatValue * -100).ToString("mm':'ss'.'ff");
             Debug.Log(item.Position + " " + item.PlayFabId + " " + statValue);
 
-            TextMesh[] texts = row.GetComponentsInChildren<TextMesh>();
+            Text[] texts = row.GetComponentsInChildren<Text>();
             texts[0].text = item.Position.ToString();
             texts[1].text = item.PlayFabId;
             texts[2].text = TimeSpan.FromSeconds(item.StatValue *-100).ToString("mm':'ss'.'ff");

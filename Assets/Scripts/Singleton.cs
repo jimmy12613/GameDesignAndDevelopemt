@@ -10,6 +10,7 @@ public class Singleton : MonoBehaviour
     public bool trace = false;
     public bool level1Status = false;
     public bool level2Status = false;
+    public string playerName = null;
 
     private void Awake() 
     { 
@@ -62,5 +63,15 @@ public class Singleton : MonoBehaviour
     public void setLevel2Status(bool level2Status)
     {
         this.level2Status = level2Status;
+    }
+
+    //get set method of playerName
+    public string getPlayerName()
+    {
+        return playerName;
+    }
+    public void setPlayerName(string playerName)
+    {
+        this.playerName = playerName;
     }
 }

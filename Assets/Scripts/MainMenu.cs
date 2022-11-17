@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject LeaderBoardScene;
+    public GameObject NameScene1;
+    public GameObject NameScene2;
     public GameObject StartMenu;
     PlayfabManager playfabManager;
 
@@ -52,12 +54,25 @@ public class MainMenu : MonoBehaviour
     public void GoToLevel1()
     {
         // Go to Scene "Level1"
-        SceneManager.LoadScene("Level1");
+        if (string.IsNullOrEmpty(Singleton.Instance.getPlayerName()))
+        {
+            NameScene1.SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene("Level1");
+        }
     }
 
     public void GoToLevel2()
     {
         // Go to Scene "Level2"
-        SceneManager.LoadScene("Level2");
+        if (string.IsNullOrEmpty(Singleton.Instance.getPlayerName()))
+        {
+            NameScene2.SetActive(true);
+        } else
+        {
+            SceneManager.LoadScene("Level2");
+        }
     }
 }
