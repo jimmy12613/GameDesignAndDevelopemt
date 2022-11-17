@@ -7,7 +7,7 @@ public class ItemCollect : MonoBehaviour
 {
 	public int amountOfItems;
 	private ParticleSystem _particleSystem;
-	private AudioSource itemsound;
+	public AudioSource itemsound;
 	private Text _itemText;
 	private Transform _door;
 
@@ -15,7 +15,7 @@ public class ItemCollect : MonoBehaviour
     void Start()
     {
         _particleSystem = GetComponent<ParticleSystem>();
-		itemsound = GetComponent<AudioSource>();
+		
 		_itemText = GameObject.Find("ItemCollectedText").GetComponent<Text>();
 		_itemText.text = amountOfItems + "/90";
 		_door = GameObject.Find("Door").GetComponent<Transform>();
