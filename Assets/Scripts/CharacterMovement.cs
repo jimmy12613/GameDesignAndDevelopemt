@@ -29,6 +29,7 @@ public class CharacterMovement : MonoBehaviour
 		
 		/* transform.Translate(move * Time.deltaTime * Speed); */
         _controller.Move(move * Time.deltaTime * Speed);
+        transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
 		
 		float horizontalMove = rotate * Input.GetAxis("Mouse X");
         transform.Rotate(0, horizontalMove, 0);
