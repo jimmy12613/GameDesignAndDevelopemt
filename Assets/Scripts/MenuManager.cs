@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -25,5 +26,11 @@ public class MenuManager : MonoBehaviour
         //     target.SetActive(false);
         //     Debug.Log("Escape key Up");
         // }
+    }
+
+    public void Retry() {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.UnloadScene(currentScene.buildIndex);
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 }

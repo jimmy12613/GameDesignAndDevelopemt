@@ -36,6 +36,6 @@ public class MonsterAI : AIPath
     void Attack()
     {
         Debug.Log("Attack");
-        GameObject.Find("Timer").GetComponent<Timer>().finish();
+        GameObject.Find("Timer").GetComponent<Timer>().finish(false);
     }
 }

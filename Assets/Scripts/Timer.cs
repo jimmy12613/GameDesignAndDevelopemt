@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     bool isFinish;
     public Text timerText;
     public TimeSpan time;
+    public GameObject deadMenu;
     float startTime;
 
     PlayfabManager playfabManager;
@@ -39,19 +40,26 @@ public class Timer : MonoBehaviour
         playfabManager.GetPlayerLevelStatus();
     }
 
-    public void finish()
+    public void finish(bool levelClear)
     {
         isFinish = true;
         GameObject.Find("MonsterAI").GetComponent<MonsterAI>().enabled = false;
 
-        playfabManager.uploadLevel1Score(time.TotalSeconds);
-        if (SceneManager.GetActiveScene().name == "Level1")
-        {
-            Singleton.Instance.setLevel1Status(true);
-        } else if (SceneManager.GetActiveScene().name == "Level2")
-        {
-            Singleton.Instance.setLevel2Status(true);
+        if (levelClear){
+            Debug.Log("cleared level");
+            playfabManager.uploadLevel1Score(time.TotalSeconds);
+            if (SceneManager.GetActiveScene().name == "Level1")
+            {
+                Singleton.Instance.setLevel1Status(true);
+            } else if (SceneManager.GetActiveScene().name == "Level2")
+            {
+                Singleton.Instance.setLevel2Status(true);
+            }
+            playfabManager.SavePlayerLevelStatus();
+        } else {
+            Debug.Log("dead");
+            deadMenu.SetActive(true);
         }
-        playfabManager.SavePlayerLevelStatus();
+        
     }
 }
