@@ -9,7 +9,6 @@ public class CharacterMovement : MonoBehaviour
 {
 	
 	private CharacterController _controller;
-	private Camera _cam;
 	public float Speed = 2.0f;
 	private float rotate = 2f;
 
