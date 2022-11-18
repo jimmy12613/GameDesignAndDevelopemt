@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class ItemCollect : MonoBehaviour
 {
-	public int amountOfItems;
+	public int itemCollected;
 	private ParticleSystem _particleSystem;
 	public AudioSource itemsound;
 	private Text _itemText;
-	private Transform _door;
+	private int _totalItem;
 
     // Start is called before the first frame update
     void Start()
@@ -17,20 +17,20 @@ public class ItemCollect : MonoBehaviour
         _particleSystem = GetComponent<ParticleSystem>();
 		
 		_itemText = GameObject.Find("ItemCollectedText").GetComponent<Text>();
-		_itemText.text = amountOfItems + "/90";
-		_door = GameObject.Find("Door").GetComponent<Transform>();
+		_itemText.text = itemCollected + "/90";
+
+		_totalItem = GameObject.Find("Items").GetComponent<Transform>().childCount;
+		// Debug.Log(_totalItem);
     }
 
 	public void OnTriggerEnter(Collider Col){
 		if(Col.gameObject.tag == "Item")
 		{
-			amountOfItems = amountOfItems + 1;
+		 	itemCollected++;
 			Destroy(Col.gameObject);
 			_particleSystem.Play();
 			itemsound.Play();
-			_itemText.text = amountOfItems + "/90";
-			if (amountOfItems == 90) {_door.Translate(0, 10.0f, 0);}
-			
+			_itemText.text = itemCollected + "/" + _totalItem;
 		}
 	}
 		
@@ -38,6 +38,6 @@ public class ItemCollect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _itemText.text = amountOfItems + "/90";
+        _itemText.text = itemCollected + "/" + _totalItem;
     }
 }

@@ -5302,6 +5302,7 @@ GameObject:
   - component: {fileID: 38551714}
   - component: {fileID: 38551713}
   - component: {fileID: 38551712}
+  - component: {fileID: 38551715}
   m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
@@ -5387,6 +5388,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38551710}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &38551715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38551710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5199a3fc3ece52e4f80006ad0e60a530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40525547
 GameObject:
   m_ObjectHideFlags: 0
@@ -5615,7 +5628,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5891,8 +5904,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90566316}
-  m_LocalRotation: {x: 0.000000005472839, y: 0.9732491, z: -0.22975287, w: 0.000000023183322}
-  m_LocalPosition: {x: 4.5000024, y: 7.4744678, z: -34.991074}
+  m_LocalRotation: {x: -0.0000000054728484, y: 0.973249, z: -0.229753, w: -0.000000023183341}
+  m_LocalPosition: {x: 4.4999995, y: 7.474474, z: -34.99105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6349,7 +6362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &142835901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11409,7 +11422,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15787,7 +15800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1358445876
 MonoBehaviour:
   m_ObjectHideFlags: 0
