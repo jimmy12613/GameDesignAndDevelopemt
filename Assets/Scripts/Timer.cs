@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour
     {
         playfabManager = GetComponent<PlayfabManager>();
         isFinish = Singleton.Instance.getIsFinish();
+        initTimer();
     }
 
     // Update is called once per frame
