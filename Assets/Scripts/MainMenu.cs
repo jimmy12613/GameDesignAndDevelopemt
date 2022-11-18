@@ -75,4 +75,12 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene("Level2");
         }
     }
+
+    public void CloseNameInputBoard(int levelNum){
+        if (levelNum == 1){
+            NameScene1.SetActive(false);
+        } else {
+            NameScene2.SetActive(false);
+        }
+    }
 }
