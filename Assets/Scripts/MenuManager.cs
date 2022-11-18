@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("OptionsMenu");
+        // target = GameObject.Find("OptionsMenu");
     }
 
     // Update is called once per frame
