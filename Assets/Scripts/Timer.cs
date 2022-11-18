@@ -7,7 +7,7 @@ using System;
 
 public class Timer : MonoBehaviour
 {
-    bool isFinish;
+    public bool isFinish;
     public Text timerText;
     public TimeSpan time;
     public GameObject deadMenu;

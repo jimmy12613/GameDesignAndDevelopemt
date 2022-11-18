@@ -11,11 +11,13 @@ public class CharacterMovement : MonoBehaviour
 	private CharacterController _controller;
 	public float Speed = 2.0f;
 	private float rotate = 2f;
+    private Timer _timer;
 
     // Start is called before the first frame update
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _timer = GameObject.Find("Timer").GetComponent<Timer>();
     }
 
     // Update is called once per frame
@@ -28,11 +30,14 @@ public class CharacterMovement : MonoBehaviour
 		
 		
 		/* transform.Translate(move * Time.deltaTime * Speed); */
-        _controller.Move(move * Time.deltaTime * Speed);
-        transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
+        if (!_timer.isFinish){
+            _controller.Move(move * Time.deltaTime * Speed);
+            transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
 		
-		float horizontalMove = rotate * Input.GetAxis("Mouse X");
-        transform.Rotate(0, horizontalMove, 0);
+		    float horizontalMove = rotate * Input.GetAxis("Mouse X");
+            transform.Rotate(0, horizontalMove, 0);
+        }
+        
     }
 	
 }

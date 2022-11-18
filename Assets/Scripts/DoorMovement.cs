@@ -26,7 +26,7 @@ public class DoorMovement : MonoBehaviour
         if (_itemCollected > 0 && _doorPosition.position.y < _doorMoveHeight) {
             _doorPosition.Translate(0, 0.01f, 0);
         }
-        // if (_itemCollected == _totalItem) {
+        // if (_itemCollected == _totalItem && _doorPosition.position.y < _doorMoveHeight) {
         //     _doorPosition.Translate(0, 10.0f, 0);
         // }
     }

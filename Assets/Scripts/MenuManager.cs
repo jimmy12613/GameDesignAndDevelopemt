@@ -30,7 +30,10 @@ public class MenuManager : MonoBehaviour
 
     public void Retry() {
         Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.UnloadScene(currentScene.buildIndex);
         SceneManager.LoadScene(currentScene.buildIndex);
+    }
+
+    public void BacktoMenu(){
+        SceneManager.LoadScene("StartMenu");
     }
 }
