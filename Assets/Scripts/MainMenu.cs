@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject NameScene1;
     public GameObject NameScene2;
     public GameObject StartMenu;
+    public GameObject Setting;
     PlayfabManager playfabManager;
 
     void Start()
@@ -37,6 +38,16 @@ public class MainMenu : MonoBehaviour
     public void CloseLeaderBoard()
     {
         LeaderBoardScene.SetActive(false);
+    }
+
+    public void SettingMenu()
+    {
+        Setting.SetActive(true);
+    }
+
+    public void CloseSettingMenu()
+    {
+        Setting.SetActive(false);
     }
 
     public void GoToStartMenu()
