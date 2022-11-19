@@ -7855,13 +7855,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357677318}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: -0.00000002736427, y: 0.97324896, z: -0.2297531, w: -0.000000115916805}
   m_LocalPosition: {x: 4.5000005, y: 7.474471, z: -31.811058}
-=======
-  m_LocalRotation: {x: -0.0000000044269983, y: 0.973249, z: -0.22975291, w: -0.000000018753063}
-  m_LocalPosition: {x: 4.500001, y: 7.47447, z: -31.811062}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17650,11 +17645,7 @@ MonoBehaviour:
   Row: {fileID: 7549716515147637685, guid: 165c2b8c38b0ca94e9431e58df0339c6, type: 3}
   level1RowParent: {fileID: 1116872402}
   level2RowParent: {fileID: 28872146}
-<<<<<<< Updated upstream
   endText: {fileID: 1261960650}
-=======
-  endText: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!114 &1528522631
 MonoBehaviour:
   m_ObjectHideFlags: 0
