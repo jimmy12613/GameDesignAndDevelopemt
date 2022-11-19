@@ -7162,6 +7162,7 @@ MonoBehaviour:
   Row: {fileID: 7549716515147637685, guid: 165c2b8c38b0ca94e9431e58df0339c6, type: 3}
   level1RowParent: {fileID: 450345563}
   level2RowParent: {fileID: 84494567}
+  endText: {fileID: 34656590}
 --- !u!1 &148344178
 GameObject:
   m_ObjectHideFlags: 0
@@ -20434,6 +20435,7 @@ MonoBehaviour:
   Row: {fileID: 0}
   level1RowParent: {fileID: 0}
   level2RowParent: {fileID: 0}
+  endText: {fileID: 0}
 --- !u!1 &1473468315
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class PlayfabManager : MonoBehaviour
     public GameObject Row;
     public Transform level1RowParent;
     public Transform level2RowParent;
+    public Text endText;
+    string loggedInPlayfabId;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,6 +36,7 @@ public class PlayfabManager : MonoBehaviour
     {
         Debug.Log("Login successful!");
         Debug.Log(result.InfoResultPayload.PlayerProfile.DisplayName);
+        loggedInPlayfabId = result.PlayFabId;
         if (GameObject.Find("PlayerName") != null)
         {
             Text playerName = GameObject.Find("PlayerName").GetComponent<Text>();
@@ -135,7 +138,7 @@ public class PlayfabManager : MonoBehaviour
             }
 
             Text[] texts = row.GetComponentsInChildren<Text>();
-            texts[0].text = item.Position.ToString();
+            texts[0].text = (item.Position+1).ToString();
             texts[1].text = playerName;
             texts[2].text = statValue;
         }
@@ -162,7 +165,7 @@ public class PlayfabManager : MonoBehaviour
             }
 
             Text[] texts = row.GetComponentsInChildren<Text>();
-            texts[0].text = item.Position.ToString();
+            texts[0].text = (item.Position+1).ToString();
             texts[1].text = playerName;
             texts[2].text = TimeSpan.FromSeconds(item.StatValue *-100).ToString("mm':'ss'.'ff");
         }
@@ -198,6 +201,28 @@ public class PlayfabManager : MonoBehaviour
         }
         
     }
+
+    public void specificUserOnLeaderBoard()
+    {
+        var request = new GetLeaderboardAroundPlayerRequest {
+            StatisticName = "Level1_Time",
+            MaxResultsCount = 1
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnGetSpecificUserOnLeaderBoardSuccess, OnError);
+    }
+
+    void OnGetSpecificUserOnLeaderBoardSuccess(GetLeaderboardAroundPlayerResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            if (item.PlayFabId == loggedInPlayfabId)
+            {
+                endText.text = endText.text + ", Your Place: " + (item.Position+1).ToString();
+            }
+            print(endText.text);
+        }
+    }
+
 
 
 

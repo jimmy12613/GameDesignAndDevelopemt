@@ -11,5 +11,6 @@ public class UpdateTime : MonoBehaviour
     {
         GetComponent<Text>().text = "";
         GetComponent<Text>().text = "Your Time: " + timeText.text;
+        GameObject.Find("Menu").GetComponent<PlayfabManager>().specificUserOnLeaderBoard();
     }
 }
