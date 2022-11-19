@@ -9,7 +9,9 @@ public class CharacterMovement : MonoBehaviour
 {
 	
 	private CharacterController _controller;
+    private Animator _animator;
 	public float Speed = 2.0f;
+    public float rotationSpeed;
 	private float rotate = 2f;
     private Timer _timer;
 
@@ -17,6 +19,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>();
         _timer = GameObject.Find("Timer").GetComponent<Timer>();
     }
 
@@ -36,6 +39,22 @@ public class CharacterMovement : MonoBehaviour
 		
 		    float horizontalMove = rotate * Input.GetAxis("Mouse X");
             transform.Rotate(0, horizontalMove, 0);
+        }
+
+        //animation
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        if (movementDirection != Vector3.zero)
+        {
+            _animator.SetBool("isRunning", true);
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            _animator.SetBool("isRunning", false);
         }
         
     }
