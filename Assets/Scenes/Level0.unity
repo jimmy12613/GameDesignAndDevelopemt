@@ -7787,8 +7787,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357677318}
-  m_LocalRotation: {x: -0.000000018415218, y: 0.973249, z: -0.22975306, w: -0.00000007800808}
-  m_LocalPosition: {x: 4.5000024, y: 7.47447, z: -31.81107}
+  m_LocalRotation: {x: -0.00000002736427, y: 0.97324896, z: -0.2297531, w: -0.000000115916805}
+  m_LocalPosition: {x: 4.5000005, y: 7.474471, z: -31.811058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15216,7 +15216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd06207cdf0e108408f3294554db92ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
+  timeText: {fileID: 1325211895}
 --- !u!114 &1261960650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15681,6 +15681,7 @@ MonoBehaviour:
   Row: {fileID: 0}
   level1RowParent: {fileID: 0}
   level2RowParent: {fileID: 0}
+  endText: {fileID: 0}
 --- !u!114 &1325211894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17629,6 +17630,7 @@ MonoBehaviour:
   Row: {fileID: 7549716515147637685, guid: 165c2b8c38b0ca94e9431e58df0339c6, type: 3}
   level1RowParent: {fileID: 1116872402}
   level2RowParent: {fileID: 28872146}
+  endText: {fileID: 1261960650}
 --- !u!114 &1528522631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17645,6 +17647,7 @@ MonoBehaviour:
   NameScene1: {fileID: 0}
   NameScene2: {fileID: 0}
   StartMenu: {fileID: 0}
+  Setting: {fileID: 0}
 --- !u!114 &1528522632
 MonoBehaviour:
   m_ObjectHideFlags: 0
