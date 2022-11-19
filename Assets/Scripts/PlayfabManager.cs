@@ -128,9 +128,15 @@ public class PlayfabManager : MonoBehaviour
             string statValue = TimeSpan.FromMilliseconds(item.StatValue * -100).ToString("mm':'ss'.'ff");
             Debug.Log(item.Position + " " + item.PlayFabId + " " + statValue);
 
+            string playerName = item.DisplayName;
+            if (string.IsNullOrEmpty(playerName))
+            {
+                playerName = "Anonymous";
+            }
+
             Text[] texts = row.GetComponentsInChildren<Text>();
             texts[0].text = item.Position.ToString();
-            texts[1].text = item.PlayFabId;
+            texts[1].text = playerName;
             texts[2].text = statValue;
         }
     }
@@ -149,9 +155,15 @@ public class PlayfabManager : MonoBehaviour
             string statValue = TimeSpan.FromMilliseconds(item.StatValue * -100).ToString("mm':'ss'.'ff");
             Debug.Log(item.Position + " " + item.PlayFabId + " " + statValue);
 
+            string playerName = item.DisplayName;
+            if (string.IsNullOrEmpty(playerName))
+            {
+                playerName = "Anonymous";
+            }
+
             Text[] texts = row.GetComponentsInChildren<Text>();
             texts[0].text = item.Position.ToString();
-            texts[1].text = item.PlayFabId;
+            texts[1].text = playerName;
             texts[2].text = TimeSpan.FromSeconds(item.StatValue *-100).ToString("mm':'ss'.'ff");
         }
     }
