@@ -21,7 +21,6 @@ public class RandMonsterAI : AIPath
 
     public new void Update()
     {
-        print("Player position: " + player.position);
         base.Update();
         if (!destination.Equals(noTarget))
         {

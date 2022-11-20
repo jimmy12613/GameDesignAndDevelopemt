@@ -20,8 +20,6 @@ public class MonsterAI : AIPath
     public new void Update()
     {
         base.Update();
-        print("Player position: " + destination);
-        print("Monster position: " + transform.position);
         if (!destination.Equals(noTarget))
         {
             if (Vector3.Distance(transform.position, destination) <= attackRange)
@@ -37,9 +35,6 @@ public class MonsterAI : AIPath
 
     void Attack()
     {
-        print("Player position: " + destination);
-        print("Monster position: " + transform.position);
-        print(Vector3.Distance(transform.position, destination));
         Debug.Log("Attack");
         GameObject.Find("Timer").GetComponent<Timer>().finish(false);
         GameObject.Find("Soldier").GetComponent<Animator>().SetInteger("Status", 1);
