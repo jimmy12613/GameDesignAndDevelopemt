@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class MonsterAI : AIPath
 {
-    public float attackRange = 0.1f;
+    public float attackRange = 1f;
     public float attackRate = 1f;
     public float attackCooldown = 0f;
 
