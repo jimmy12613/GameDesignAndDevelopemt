@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class MonsterAI : AIPath
+public class RandMonsterAI : AIPath
 {
     public float attackRange = 0.1f;
     public float attackRate = 1f;
     public float attackCooldown = 0f;
+    public Transform player;
 
     Vector3 noTarget;
 
@@ -15,16 +16,16 @@ public class MonsterAI : AIPath
     {
         base.Start();
         noTarget = destination;
+        player = GameObject.Find("Character").transform;
     }
 
     public new void Update()
     {
+        print("Player position: " + player.position);
         base.Update();
-        print("Player position: " + destination);
-        print("Monster position: " + transform.position);
         if (!destination.Equals(noTarget))
         {
-            if (Vector3.Distance(transform.position, destination) <= attackRange)
+            if (Vector3.Distance(transform.position, player.position) <= attackRange)
             {
                 if (Time.time >= attackCooldown)
                 {
@@ -37,9 +38,6 @@ public class MonsterAI : AIPath
 
     void Attack()
     {
-        print("Player position: " + destination);
-        print("Monster position: " + transform.position);
-        print(Vector3.Distance(transform.position, destination));
         Debug.Log("Attack");
         GameObject.Find("Timer").GetComponent<Timer>().finish(false);
         GameObject.Find("Soldier").GetComponent<Animator>().SetInteger("Status", 1);
