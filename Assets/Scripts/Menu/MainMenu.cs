@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public GameObject LeaderBoardScene;
     public GameObject NameScene1;
     public GameObject NameScene2;
+    public GameObject Block;
     public GameObject StartMenu;
     public GameObject Setting;
     PlayfabManager playfabManager;
@@ -78,20 +79,28 @@ public class MainMenu : MonoBehaviour
     public void GoToLevel2()
     {
         // Go to Scene "Level2"
-        if (string.IsNullOrEmpty(Singleton.Instance.getPlayerName()))
+        if (Singleton.Instance.getLevel1Status() == true)
         {
-            NameScene2.SetActive(true);
-        } else
+            if (string.IsNullOrEmpty(Singleton.Instance.getPlayerName()))
+            {
+                NameScene2.SetActive(true);
+            } else
+            {
+                SceneManager.LoadScene("Level2");
+            }
+        }else
         {
-            SceneManager.LoadScene("Level2");
+            Block.SetActive(true);
         }
     }
 
     public void CloseNameInputBoard(int levelNum){
         if (levelNum == 1){
             NameScene1.SetActive(false);
-        } else {
+        } else if (levelNum == 2) {
             NameScene2.SetActive(false);
+        } else if (levelNum == 3) {
+            Block.SetActive(false);
         }
     }
 }
