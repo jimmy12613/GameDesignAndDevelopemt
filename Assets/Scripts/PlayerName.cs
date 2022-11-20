@@ -11,17 +11,12 @@ public class PlayerName : MonoBehaviour
     void Start()
     {
         mainMenu = GetComponent<MainMenu>();
+        GameObject.Find("PlayerName").GetComponent<Text>().text = "Hi, " + Singleton.Instance.getPlayerName();
     }
 
     void Update()
     {
-        if (string.IsNullOrEmpty(Singleton.Instance.getPlayerName()))
-        {
-            GameObject.Find("PlayerName").GetComponent<Text>().text = null;
-        } else
-        {
-            GameObject.Find("PlayerName").GetComponent<Text>().text = "Hi, " + Singleton.Instance.getPlayerName();
-        }
+        GameObject.Find("PlayerName").GetComponent<Text>().text = "Hi, " + Singleton.Instance.getPlayerName();
     }
    
     public void setNameLevel1()

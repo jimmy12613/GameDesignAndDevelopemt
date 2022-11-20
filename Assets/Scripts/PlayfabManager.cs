@@ -34,8 +34,8 @@ public class PlayfabManager : MonoBehaviour
 
     void OnLoginSuccess(LoginResult result)
     {
-        Debug.Log("Login successful!");
-        Debug.Log(result.InfoResultPayload.PlayerProfile.DisplayName);
+        print("Login successful!");
+        print(result.InfoResultPayload.PlayerProfile.DisplayName);
         loggedInPlayfabId = result.PlayFabId;
         if (GameObject.Find("PlayerName") != null)
         {

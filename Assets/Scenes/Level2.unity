@@ -6313,7 +6313,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6777,8 +6777,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90566316}
-  m_LocalRotation: {x: -0.0000000099064295, y: 0.973249, z: -0.22975294, w: -0.00000004196432}
-  m_LocalPosition: {x: 4.500001, y: 7.47447, z: -42.901066}
+  m_LocalRotation: {x: -0.0000000052067533, y: 0.973249, z: -0.22975299, w: -0.00000002205617}
+  m_LocalPosition: {x: 4.500002, y: 7.474469, z: -42.90107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16725,7 +16725,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20515,8 +20515,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153344724}
-  m_LocalRotation: {x: 0.10789991, y: -0.02483069, z: 0.0026958138, w: 0.99384797}
-  m_LocalPosition: {x: 5, y: 4.67, z: -51.82}
+  m_LocalRotation: {x: 0.118495665, y: -0.027340926, z: 0.0032640242, w: 0.9925727}
+  m_LocalPosition: {x: 5, y: 4.67, z: -61.979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29966,8 +29966,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694021521}
-  m_LocalRotation: {x: 0.1056404, y: -0.02429009, z: 0.0025812327, w: 0.9941044}
-  m_LocalPosition: {x: 4.500977, y: 2.4743004, z: -52.92998}
+  m_LocalRotation: {x: 0.118495665, y: -0.027340926, z: 0.0032640242, w: 0.9925727}
+  m_LocalPosition: {x: 5, y: 4.67, z: -61.979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30112,7 +30112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1697443813
 MonoBehaviour:
   m_ObjectHideFlags: 0
