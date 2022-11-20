@@ -23,11 +23,11 @@ public class DoorMovement : MonoBehaviour
     void Update()
     {
         _itemCollected = _itemCollectScript.itemCollected;
-        if (_itemCollected > 0 && _doorPosition.position.y < _doorMoveHeight) {
+        // if (_itemCollected > 0 && _doorPosition.position.y < _doorMoveHeight) {
+        //     _doorPosition.Translate(0, 0.01f, 0);
+        // }
+        if (_itemCollected == _totalItem && _doorPosition.position.y < _doorMoveHeight) {
             _doorPosition.Translate(0, 0.01f, 0);
         }
-        // if (_itemCollected == _totalItem && _doorPosition.position.y < _doorMoveHeight) {
-        //     _doorPosition.Translate(0, 10.0f, 0);
-        // }
     }
 }
