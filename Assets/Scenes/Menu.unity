@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44671863, g: 0.496575, b: 0.5750147, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -405,7 +405,6 @@ GameObject:
   - component: {fileID: 230325670}
   - component: {fileID: 230325669}
   - component: {fileID: 230325668}
-  - component: {fileID: 230325671}
   m_Layer: 5
   m_Name: SettingButton
   m_TagString: Untagged
@@ -528,19 +527,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230325666}
   m_CullTransparentMesh: 1
---- !u!114 &230325671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230325666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4204afcf70bb4057be56f497ea9b416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 230325666}
 --- !u!1 &243584248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2217,7 @@ MonoBehaviour:
   LeaderBoardScene: {fileID: 1707761297}
   NameScene1: {fileID: 0}
   NameScene2: {fileID: 0}
+  Block: {fileID: 0}
   StartMenu: {fileID: 0}
   Setting: {fileID: 2130447016}
 --- !u!114 &1127667601
