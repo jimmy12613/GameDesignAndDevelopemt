@@ -57,6 +57,7 @@ public class PlayfabManager : MonoBehaviour
                 playerName.text = null;
             }
         }
+        GetPlayerLevelStatus();
     }
 
     public void UpdatePlayerName(string name)
@@ -127,8 +128,7 @@ public class PlayfabManager : MonoBehaviour
         foreach (var item in result.Leaderboard)
         {
             GameObject row = Instantiate(Row, level1RowParent);
-
-            string statValue = TimeSpan.FromMilliseconds(item.StatValue * -100).ToString("mm':'ss'.'ff");
+            string statValue = TimeSpan.FromSeconds(item.StatValue / -100f).ToString("mm':'ss'.'ff");
             Debug.Log(item.Position + " " + item.PlayFabId + " " + statValue);
 
             string playerName = item.DisplayName;
@@ -155,7 +155,7 @@ public class PlayfabManager : MonoBehaviour
         {
             GameObject row = Instantiate(Row, level2RowParent);
 
-            string statValue = TimeSpan.FromMilliseconds(item.StatValue * -100).ToString("mm':'ss'.'ff");
+            string statValue = TimeSpan.FromSeconds(item.StatValue / -100f).ToString("mm':'ss'.'ff");
             Debug.Log(item.Position + " " + item.PlayFabId + " " + statValue);
 
             string playerName = item.DisplayName;
@@ -167,7 +167,7 @@ public class PlayfabManager : MonoBehaviour
             Text[] texts = row.GetComponentsInChildren<Text>();
             texts[0].text = (item.Position+1).ToString();
             texts[1].text = playerName;
-            texts[2].text = TimeSpan.FromSeconds(item.StatValue *-100).ToString("mm':'ss'.'ff");
+            texts[2].text = statValue;
         }
     }
 

@@ -48,13 +48,15 @@ public class Timer : MonoBehaviour
 
         if (levelClear){
             Debug.Log("cleared level");
-            playfabManager.uploadLevel1Score(time.TotalSeconds);
+            print(SceneManager.GetActiveScene().name);
             if (SceneManager.GetActiveScene().name == "Level1")
             {
                 Singleton.Instance.setLevel1Status(true);
+                playfabManager.uploadLevel1Score(time.TotalSeconds);
             } else if (SceneManager.GetActiveScene().name == "Level2")
             {
                 Singleton.Instance.setLevel2Status(true);
+                playfabManager.uploadLevel2Score(time.TotalSeconds);
             }
             playfabManager.SavePlayerLevelStatus();
         } else {
