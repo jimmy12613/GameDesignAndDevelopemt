@@ -15,7 +15,6 @@ public class DestroyMiniMapIcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // key = GameObject.Find("Key_01");
         if(key == null){
             keyIcon.SetActive(false);
         }
