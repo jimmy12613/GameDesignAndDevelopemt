@@ -44,13 +44,13 @@ public class CharacterMovement : MonoBehaviour
         //animation
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-        if (movementDirection != Vector3.zero)
+        //Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        if (move != Vector3.zero)
         {
             _animator.SetBool("isRunning", true);
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            // Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            // transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
         else
         {
