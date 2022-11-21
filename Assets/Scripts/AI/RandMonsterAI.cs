@@ -39,6 +39,6 @@ public class RandMonsterAI : AIPath
     {
         Debug.Log("Attack");
         GameObject.Find("Timer").GetComponent<Timer>().finish(false);
-        GameObject.Find("Soldier").GetComponent<Animator>().SetInteger("Status", 1);
+        
     }
 }
