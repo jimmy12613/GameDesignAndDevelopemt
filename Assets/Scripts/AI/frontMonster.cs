@@ -24,20 +24,20 @@ public class frontMonster : AIPath
 
     public new void Update()
     {
+        if (Vector3.Distance(transform.position, player.position) <= attackRange)
+            {
+                if (Time.time >= attackCooldown)
+                {
+                    Attack();
+                    attackCooldown = Time.time + 1f / attackRate;
+                }
+            }
         base.Update();
         if (!destination.Equals(noTarget))
         {
             if (Vector3.Distance(transform.position, front.position) <= searchRange)
             {
                 destination = player.position;
-                if (Vector3.Distance(transform.position, player.position) <= attackRange)
-                {
-                    if (Time.time >= attackCooldown)
-                    {
-                        Attack();
-                        attackCooldown = Time.time + 1f / attackRate;
-                    }
-                }
             }
             else
             {
