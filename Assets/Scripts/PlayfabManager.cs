@@ -205,6 +205,7 @@ public class PlayfabManager : MonoBehaviour
     public void specificUserOnLeaderBoard()
     {
         var request = new GetLeaderboardAroundPlayerRequest {
+            PlayFabId = loggedInPlayfabId,
             StatisticName = "Level1_Time",
             MaxResultsCount = 1
         };
