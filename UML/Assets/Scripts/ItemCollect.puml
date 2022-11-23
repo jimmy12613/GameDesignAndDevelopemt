@@ -1,0 +1,10 @@
+@startuml
+class ItemCollect {
+    + itemCollected : int
+    Start() : void
+    + OnTriggerEnter(Col:Collider) : void
+    Update() : void
+}
+MonoBehaviour <|-- ItemCollect
+ItemCollect --> "itemsound" AudioSource
+@enduml

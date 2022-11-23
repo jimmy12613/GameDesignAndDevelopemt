@@ -1,0 +1,13 @@
+@startuml
+class RandMonsterAI {
+    + attackRange : float = 1.5f
+    + attackRate : float = 1f
+    + attackCooldown : float = 0f
+    + <<new>> Start() : void
+    + <<new>> Update() : void
+    Attack() : void
+}
+AIPath <|-- RandMonsterAI
+RandMonsterAI --> "player" Transform
+RandMonsterAI --> "noTarget" Vector3
+@enduml

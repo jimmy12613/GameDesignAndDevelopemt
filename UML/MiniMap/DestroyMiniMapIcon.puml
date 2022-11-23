@@ -1,0 +1,9 @@
+@startuml
+class DestroyMiniMapIcon {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- DestroyMiniMapIcon
+DestroyMiniMapIcon --> "key" GameObject
+DestroyMiniMapIcon --> "keyIcon" GameObject
+@enduml

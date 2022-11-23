@@ -1,0 +1,15 @@
+@startuml
+class Timer {
+    + isFinish : bool
+    startTime : float
+    Start() : void
+    Update() : void
+    + initTimer() : void
+    + finish(levelClear:bool) : void
+}
+MonoBehaviour <|-- Timer
+Timer --> "timerText" Text
+Timer --> "time" TimeSpan
+Timer --> "deadMenu" GameObject
+Timer --> "playfabManager" PlayfabManager
+@enduml

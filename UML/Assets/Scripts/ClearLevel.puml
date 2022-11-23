@@ -1,0 +1,9 @@
+@startuml
+class ClearLevel {
+    Start() : void
+    Update() : void
+    + OnTriggerEnter(Col:Collider) : void
+}
+MonoBehaviour <|-- ClearLevel
+ClearLevel --> "clearLevelMenu" GameObject
+@enduml

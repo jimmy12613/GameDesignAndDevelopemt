@@ -1,0 +1,7 @@
+@startuml
+class DoorMovement {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- DoorMovement
+@enduml

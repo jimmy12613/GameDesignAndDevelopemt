@@ -1,0 +1,8 @@
+@startuml
+class Rand {
+    + period : float = 5f
+    Update() : void
+    randomAPosition() : void
+}
+MonoBehaviour <|-- Rand
+@enduml

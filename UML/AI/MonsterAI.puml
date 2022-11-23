@@ -1,0 +1,12 @@
+@startuml
+class MonsterAI {
+    + attackRange : float = 1f
+    + attackRate : float = 1f
+    + attackCooldown : float = 0f
+    + <<new>> Start() : void
+    + <<new>> Update() : void
+    Attack() : void
+}
+AIPath <|-- MonsterAI
+MonsterAI --> "noTarget" Vector3
+@enduml

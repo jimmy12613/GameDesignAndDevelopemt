@@ -1,0 +1,7 @@
+@startuml
+class CameraChange {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CameraChange
+@enduml

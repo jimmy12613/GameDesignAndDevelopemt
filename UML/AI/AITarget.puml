@@ -1,0 +1,10 @@
+@startuml
+class AITarget {
+    Start() : void
+    Update() : void
+    + OnEnable() : void
+    + OnDisable() : void
+}
+AIDestinationSetter <|-- AITarget
+AITarget --> "ai" IAstarAI
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+class PlayerName {
+    Start() : void
+    Update() : void
+    + setNameLevel1() : void
+    + setNameLevel2() : void
+}
+MonoBehaviour <|-- PlayerName
+PlayerName --> "input" InputField
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class EnemyCollision {
+    Start() : void
+    + OnTriggerEnter(Col:Collider) : void
+    Update() : void
+}
+MonoBehaviour <|-- EnemyCollision
+@enduml

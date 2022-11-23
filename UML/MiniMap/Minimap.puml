@@ -1,0 +1,7 @@
+@startuml
+class Minimap {
+    Start() : void
+    LateUpdate() : void
+}
+MonoBehaviour <|-- Minimap
+@enduml

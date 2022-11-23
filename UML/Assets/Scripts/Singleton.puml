@@ -1,0 +1,21 @@
+@startuml
+class Singleton {
+    + isFinish : bool = false
+    + trace : bool = false
+    + level1Status : bool = false
+    + level2Status : bool = false
+    + playerName : string = null
+    + getIsFinish() : bool
+    + setIsFinish(isFinish:bool) : void
+    + getTrace() : bool
+    + setTrace(trace:bool) : void
+    + getLevel1Status() : bool
+    + setLevel1Status(level1Status:bool) : void
+    + getLevel2Status() : bool
+    + setLevel2Status(level2Status:bool) : void
+    + getPlayerName() : string
+    + setPlayerName(playerName:string) : void
+}
+MonoBehaviour <|-- Singleton
+Singleton --> "Instance" Singleton
+@enduml

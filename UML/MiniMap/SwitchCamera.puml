@@ -1,0 +1,8 @@
+@startuml
+class SwitchCamera {
+    + ClickZoomButton() : void
+}
+MonoBehaviour <|-- SwitchCamera
+SwitchCamera --> "MiniMapCamera1" GameObject
+SwitchCamera --> "MiniMapCamera2" GameObject
+@enduml

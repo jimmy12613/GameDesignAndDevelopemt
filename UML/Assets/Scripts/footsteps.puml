@@ -1,0 +1,8 @@
+@startuml
+class footsteps {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- footsteps
+footsteps --> "footstep" AudioSource
+@enduml

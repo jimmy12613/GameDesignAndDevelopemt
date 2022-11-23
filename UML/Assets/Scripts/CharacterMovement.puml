@@ -1,0 +1,9 @@
+@startuml
+class CharacterMovement {
+    + Speed : float = 2.0f
+    + rotationSpeed : float
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CharacterMovement
+@enduml

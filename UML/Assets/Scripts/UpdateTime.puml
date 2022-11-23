@@ -1,0 +1,8 @@
+@startuml
+class UpdateTime {
+    Start() : void
+    waiter() : IEnumerator
+}
+MonoBehaviour <|-- UpdateTime
+UpdateTime --> "timeText" Text
+@enduml

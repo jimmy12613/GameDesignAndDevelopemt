@@ -1,0 +1,24 @@
+@startuml
+class MainMenu {
+    Start() : void
+    + PlayGame() : void
+    + QuitGame() : void
+    + LeaderBoard() : void
+    + CloseLeaderBoard() : void
+    + SettingMenu() : void
+    + CloseSettingMenu() : void
+    + GoToStartMenu() : void
+    + BackToMenu() : void
+    + GoToLevel1() : void
+    + GoToLevel2() : void
+    + CloseNameInputBoard(levelNum:int) : void
+}
+MonoBehaviour <|-- MainMenu
+MainMenu --> "LeaderBoardScene" GameObject
+MainMenu --> "NameScene1" GameObject
+MainMenu --> "NameScene2" GameObject
+MainMenu --> "Block" GameObject
+MainMenu --> "StartMenu" GameObject
+MainMenu --> "Setting" GameObject
+MainMenu --> "playfabManager" PlayfabManager
+@enduml

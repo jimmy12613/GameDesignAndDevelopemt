@@ -1,0 +1,34 @@
+@startuml
+class PlayfabManager {
+    loggedInPlayfabId : string
+    Awake() : void
+    Login() : void
+    OnLoginSuccess(result:LoginResult) : void
+    + UpdatePlayerName(name:string) : void
+    OnUpdatePlayerNameSuccess(result:UpdateUserTitleDisplayNameResult) : void
+    + uploadLevel1Score(score:double) : void
+    + uploadLevel2Score(score:double) : void
+    + GetLevel1LeaderBoard() : void
+    + GetLevel2LeaderBoard() : void
+    OnGetLevel1LeaderBoardSuccess(result:GetLeaderboardResult) : void
+    OnGetLevel2LeaderBoardSuccess(result:GetLeaderboardResult) : void
+    + SavePlayerLevelStatus() : void
+    + GetPlayerLevelStatus() : void
+    OnLoadPlayerLevelStatusSuccess(result:GetUserDataResult) : void
+    + specificUserOnLeaderBoard() : void
+    OnGetSpecificUserOnLeaderBoardSuccess(result:GetLeaderboardAroundPlayerResult) : void
+    OnSuccess(result:LoginResult) : void
+    OnError(error:PlayFabError) : void
+    OnUpdateScoreSuccess(result:UpdatePlayerStatisticsResult) : void
+    OnUpdateScoreError(error:PlayFabError) : void
+    OnGetLeaderBoardError(error:PlayFabError) : void
+    OnSavePlayerLevelStatusSuccess(result:UpdateUserDataResult) : void
+    OnSavePlayerLevelStatusError(error:PlayFabError) : void
+    OnLoadPlayerLevelStatusError(error:PlayFabError) : void
+}
+MonoBehaviour <|-- PlayfabManager
+PlayfabManager --> "Row" GameObject
+PlayfabManager --> "level1RowParent" Transform
+PlayfabManager --> "level2RowParent" Transform
+PlayfabManager --> "endText" Text
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class SoundManager {
+    Start() : void
+    + ChangeVolume() : void
+}
+MonoBehaviour <|-- SoundManager
+SoundManager --> "volumeSlider" Slider
+@enduml

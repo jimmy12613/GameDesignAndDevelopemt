@@ -1,0 +1,10 @@
+@startuml
+class MenuManager {
+    Start() : void
+    Update() : void
+    + Retry() : void
+    + BacktoMenu() : void
+}
+MonoBehaviour <|-- MenuManager
+MenuManager --> "target" GameObject
+@enduml
