@@ -1,4 +1,56 @@
 @startuml
+class Singleton {
+    + isFinish : bool = false
+    + trace : bool = false
+    + level1Status : bool = false
+    + level2Status : bool = false
+    + playerName : string = null
+    + getIsFinish() : bool
+    + setIsFinish(isFinish:bool) : void
+    + getTrace() : bool
+    + setTrace(trace:bool) : void
+    + getLevel1Status() : bool
+    + setLevel1Status(level1Status:bool) : void
+    + getLevel2Status() : bool
+    + setLevel2Status(level2Status:bool) : void
+    + getPlayerName() : string
+    + setPlayerName(playerName:string) : void
+}
+MonoBehaviour <|-- Singleton
+Singleton --> "Instance" Singleton
+class ItemCollect {
+    + itemCollected : int
+    Start() : void
+    + OnTriggerEnter(Col:Collider) : void
+    Update() : void
+    Sprint() : void
+}
+MonoBehaviour <|-- ItemCollect
+ItemCollect --> "itemsound" AudioSource
+class CharacterMovement {
+    + Speed : float = 2.0f
+    + rotationSpeed : float
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CharacterMovement
+class DoorMovement {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- DoorMovement
+class UpdateTime {
+    Start() : void
+    waiter() : IEnumerator
+}
+MonoBehaviour <|-- UpdateTime
+UpdateTime --> "timeText" Text
+class footsteps {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- footsteps
+footsteps --> "footstep" AudioSource
 class PlayfabManager {
     loggedInPlayfabId : string
     Awake() : void
@@ -31,13 +83,21 @@ PlayfabManager --> "Row" GameObject
 PlayfabManager --> "level1RowParent" Transform
 PlayfabManager --> "level2RowParent" Transform
 PlayfabManager --> "endText" Text
-class CharacterMovement {
-    + Speed : float = 2.0f
-    + rotationSpeed : float
+class PlayerName {
     Start() : void
     Update() : void
+    + setNameLevel1() : void
+    + setNameLevel2() : void
 }
-MonoBehaviour <|-- CharacterMovement
+MonoBehaviour <|-- PlayerName
+PlayerName --> "input" InputField
+class ClearLevel {
+    Start() : void
+    Update() : void
+    + OnTriggerEnter(Col:Collider) : void
+}
+MonoBehaviour <|-- ClearLevel
+ClearLevel --> "clearLevelMenu" GameObject
 class Timer {
     + isFinish : bool
     startTime : float
@@ -51,76 +111,17 @@ Timer --> "timerText" Text
 Timer --> "time" TimeSpan
 Timer --> "deadMenu" GameObject
 Timer --> "playfabManager" PlayfabManager
-class PlayerName {
-    Start() : void
-    Update() : void
-    + setNameLevel1() : void
-    + setNameLevel2() : void
-}
-MonoBehaviour <|-- PlayerName
-PlayerName --> "input" InputField
-class Singleton {
-    + isFinish : bool = false
-    + trace : bool = false
-    + level1Status : bool = false
-    + level2Status : bool = false
-    + playerName : string = null
-    + getIsFinish() : bool
-    + setIsFinish(isFinish:bool) : void
-    + getTrace() : bool
-    + setTrace(trace:bool) : void
-    + getLevel1Status() : bool
-    + setLevel1Status(level1Status:bool) : void
-    + getLevel2Status() : bool
-    + setLevel2Status(level2Status:bool) : void
-    + getPlayerName() : string
-    + setPlayerName(playerName:string) : void
-}
-MonoBehaviour <|-- Singleton
-Singleton --> "Instance" Singleton
-class footsteps {
-    Start() : void
-    Update() : void
-}
-MonoBehaviour <|-- footsteps
-footsteps --> "footstep" AudioSource
-class DoorMovement {
-    Start() : void
-    Update() : void
-}
-MonoBehaviour <|-- DoorMovement
-class ClearLevel {
-    Start() : void
-    Update() : void
-    + OnTriggerEnter(Col:Collider) : void
-}
-MonoBehaviour <|-- ClearLevel
-ClearLevel --> "clearLevelMenu" GameObject
-class ItemCollect {
-    + itemCollected : int
-    Start() : void
-    + OnTriggerEnter(Col:Collider) : void
-    Update() : void
-}
-MonoBehaviour <|-- ItemCollect
-ItemCollect --> "itemsound" AudioSource
-class UpdateTime {
-    Start() : void
-    waiter() : IEnumerator
-}
-MonoBehaviour <|-- UpdateTime
-UpdateTime --> "timeText" Text
-class CameraChange {
-    Start() : void
-    Update() : void
-}
-MonoBehaviour <|-- CameraChange
 class EnemyCollision {
     Start() : void
     + OnTriggerEnter(Col:Collider) : void
     Update() : void
 }
 MonoBehaviour <|-- EnemyCollision
+class CameraChange {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- CameraChange
 class AITarget {
     Start() : void
     Update() : void
@@ -129,6 +130,12 @@ class AITarget {
 }
 AIDestinationSetter <|-- AITarget
 AITarget --> "ai" IAstarAI
+class Rand {
+    + period : float = 5f
+    Update() : void
+    randomAPosition() : void
+}
+MonoBehaviour <|-- Rand
 class frontMonster {
     + attackRange : float = 1f
     + attackRate : float = 1f
@@ -141,6 +148,16 @@ AIPath <|-- frontMonster
 frontMonster --> "front" Transform
 frontMonster --> "player" Transform
 frontMonster --> "noTarget" Vector3
+class MonsterAI {
+    + attackRange : float = 1f
+    + attackRate : float = 1f
+    + attackCooldown : float = 0f
+    + <<new>> Start() : void
+    + <<new>> Update() : void
+    Attack() : void
+}
+AIPath <|-- MonsterAI
+MonsterAI --> "noTarget" Vector3
 class RandMonsterAI {
     + attackRange : float = 1.5f
     + attackRate : float = 1f
@@ -152,22 +169,30 @@ class RandMonsterAI {
 AIPath <|-- RandMonsterAI
 RandMonsterAI --> "player" Transform
 RandMonsterAI --> "noTarget" Vector3
-class Rand {
-    + period : float = 5f
+class Minimap {
+    Start() : void
+    LateUpdate() : void
+}
+MonoBehaviour <|-- Minimap
+class DestroyMiniMapIcon {
+    Start() : void
     Update() : void
-    randomAPosition() : void
 }
-MonoBehaviour <|-- Rand
-class MonsterAI {
-    + attackRange : float = 1f
-    + attackRate : float = 1f
-    + attackCooldown : float = 0f
-    + <<new>> Start() : void
-    + <<new>> Update() : void
-    Attack() : void
+MonoBehaviour <|-- DestroyMiniMapIcon
+DestroyMiniMapIcon --> "key" GameObject
+DestroyMiniMapIcon --> "keyIcon" GameObject
+class SwitchCamera {
+    + ClickZoomButton() : void
 }
-AIPath <|-- MonsterAI
-MonsterAI --> "noTarget" Vector3
+MonoBehaviour <|-- SwitchCamera
+SwitchCamera --> "MiniMapCamera1" GameObject
+SwitchCamera --> "MiniMapCamera2" GameObject
+class SoundManager {
+    Start() : void
+    + ChangeVolume() : void
+}
+MonoBehaviour <|-- SoundManager
+SoundManager --> "volumeSlider" Slider
 class MenuManager {
     Start() : void
     Update() : void
@@ -176,12 +201,6 @@ class MenuManager {
 }
 MonoBehaviour <|-- MenuManager
 MenuManager --> "target" GameObject
-class SoundManager {
-    Start() : void
-    + ChangeVolume() : void
-}
-MonoBehaviour <|-- SoundManager
-SoundManager --> "volumeSlider" Slider
 class MainMenu {
     Start() : void
     + PlayGame() : void
@@ -204,22 +223,4 @@ MainMenu --> "Block" GameObject
 MainMenu --> "StartMenu" GameObject
 MainMenu --> "Setting" GameObject
 MainMenu --> "playfabManager" PlayfabManager
-class SwitchCamera {
-    + ClickZoomButton() : void
-}
-MonoBehaviour <|-- SwitchCamera
-SwitchCamera --> "MiniMapCamera1" GameObject
-SwitchCamera --> "MiniMapCamera2" GameObject
-class Minimap {
-    Start() : void
-    LateUpdate() : void
-}
-MonoBehaviour <|-- Minimap
-class DestroyMiniMapIcon {
-    Start() : void
-    Update() : void
-}
-MonoBehaviour <|-- DestroyMiniMapIcon
-DestroyMiniMapIcon --> "key" GameObject
-DestroyMiniMapIcon --> "keyIcon" GameObject
 @enduml

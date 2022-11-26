@@ -4,6 +4,7 @@ class ItemCollect {
     Start() : void
     + OnTriggerEnter(Col:Collider) : void
     Update() : void
+    Sprint() : void
 }
 MonoBehaviour <|-- ItemCollect
 ItemCollect --> "itemsound" AudioSource
